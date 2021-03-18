@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E122C1F125FD617D006A1670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C1F025FD617D006A1670 /* AppDelegate.swift */; };
+		E122C1F325FD617D006A1670 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C1F225FD617D006A1670 /* SceneDelegate.swift */; };
+		E122C1F525FD617D006A1670 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C1F425FD617D006A1670 /* HomeViewController.swift */; };
+		E122C1F825FD617D006A1670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122C1F625FD617D006A1670 /* Main.storyboard */; };
+		E122C1FA25FD6180006A1670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E122C1F925FD6180006A1670 /* Assets.xcassets */; };
+		E122C1FD25FD6180006A1670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */; };
+		E122C20525FD7598006A1670 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */; };
+		E122C20725FD9061006A1670 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20625FD9061006A1670 /* FlickrAPI.swift */; };
+		E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20A25FE5B06006A1670 /* PhotoStore.swift */; };
+		E122C2512601C171006A1670 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2502601C170006A1670 /* Photo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E122C1ED25FD617D006A1670 /* RAFFotografic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAFFotografic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E122C1F025FD617D006A1670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E122C1F225FD617D006A1670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E122C1F425FD617D006A1670 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E122C1F725FD617D006A1670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E122C1F925FD6180006A1670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E122C1FC25FD6180006A1670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E122C1FE25FD6180006A1670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		E122C20625FD9061006A1670 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		E122C20A25FE5B06006A1670 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		E122C2502601C170006A1670 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E122C1EA25FD617D006A1670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E122C1E425FD617D006A1670 = {
+			isa = PBXGroup;
+			children = (
+				E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */,
+				E122C1EF25FD617D006A1670 /* RAFFotografic */,
+				E122C1EE25FD617D006A1670 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E122C1EE25FD617D006A1670 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E122C1ED25FD617D006A1670 /* RAFFotografic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E122C1EF25FD617D006A1670 /* RAFFotografic */ = {
+			isa = PBXGroup;
+			children = (
+				E122C1F025FD617D006A1670 /* AppDelegate.swift */,
+				E122C1F225FD617D006A1670 /* SceneDelegate.swift */,
+				E122C1F425FD617D006A1670 /* HomeViewController.swift */,
+				E122C20A25FE5B06006A1670 /* PhotoStore.swift */,
+				E122C20625FD9061006A1670 /* FlickrAPI.swift */,
+				E122C1F625FD617D006A1670 /* Main.storyboard */,
+				E122C1F925FD6180006A1670 /* Assets.xcassets */,
+				E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */,
+				E122C1FE25FD6180006A1670 /* Info.plist */,
+				E122C2502601C170006A1670 /* Photo.swift */,
+			);
+			path = RAFFotografic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E122C1EC25FD617D006A1670 /* RAFFotografic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "RAFFotografic" */;
+			buildPhases = (
+				E122C1E925FD617D006A1670 /* Sources */,
+				E122C1EA25FD617D006A1670 /* Frameworks */,
+				E122C1EB25FD617D006A1670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RAFFotografic;
+			productName = RAFFotografic;
+			productReference = E122C1ED25FD617D006A1670 /* RAFFotografic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E122C1E525FD617D006A1670 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = Raf;
+				TargetAttributes = {
+					E122C1EC25FD617D006A1670 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "RAFFotografic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E122C1E425FD617D006A1670;
+			productRefGroup = E122C1EE25FD617D006A1670 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E122C1EC25FD617D006A1670 /* RAFFotografic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E122C1EB25FD617D006A1670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E122C1FD25FD6180006A1670 /* LaunchScreen.storyboard in Resources */,
+				E122C1FA25FD6180006A1670 /* Assets.xcassets in Resources */,
+				E122C1F825FD617D006A1670 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E122C1E925FD617D006A1670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E122C2512601C171006A1670 /* Photo.swift in Sources */,
+				E122C20525FD7598006A1670 /* UIViewController+Extensions.swift in Sources */,
+				E122C1F525FD617D006A1670 /* HomeViewController.swift in Sources */,
+				E122C1F125FD617D006A1670 /* AppDelegate.swift in Sources */,
+				E122C1F325FD617D006A1670 /* SceneDelegate.swift in Sources */,
+				E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */,
+				E122C20725FD9061006A1670 /* FlickrAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E122C1F625FD617D006A1670 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E122C1F725FD617D006A1670 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E122C1FC25FD6180006A1670 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E122C1FF25FD6180006A1670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E122C20025FD6180006A1670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E122C20225FD6180006A1670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BV7ZYWZYR7;
+				INFOPLIST_FILE = RAFFotografic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raf.-.gamma.RAFFotografic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E122C20325FD6180006A1670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BV7ZYWZYR7;
+				INFOPLIST_FILE = RAFFotografic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raf.-.gamma.RAFFotografic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "RAFFotografic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E122C1FF25FD6180006A1670 /* Debug */,
+				E122C20025FD6180006A1670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "RAFFotografic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E122C20225FD6180006A1670 /* Debug */,
+				E122C20325FD6180006A1670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E122C1E525FD617D006A1670 /* Project object */;
+}
