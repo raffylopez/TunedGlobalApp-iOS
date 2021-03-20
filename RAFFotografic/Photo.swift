@@ -21,3 +21,12 @@ class Photo: Codable {
         case remoteURL = "url_z"
     }
 }
+
+extension Photo: Equatable {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
+        if lhs.photoID == rhs.photoID {
+            return true
+        }
+        return false
+    }
+}

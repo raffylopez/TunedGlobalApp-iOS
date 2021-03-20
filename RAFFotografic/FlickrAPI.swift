@@ -75,7 +75,7 @@ struct FlickrResponse: Codable {
 
 /// Represents photos info { photos: [photo] }
 struct FlickrPhotosResponse: Codable {
-    let photos: [Photo]
+    var photos: [Photo]
 
     enum CodingKeys: String, CodingKey {
         case photos = "photo"

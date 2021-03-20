@@ -92,6 +92,7 @@ class PhotoStore {
         task.resume()
     }
     
+    /// Download actual image
     func fetchImage(for photo: Photo, completion: @escaping (Result<UIImage, Error>) -> Void) {
         guard let photoUrl = photo.remoteURL else {
             completion(.failure(PhotoError.missingImageUrl))
