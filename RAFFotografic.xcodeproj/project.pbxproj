@@ -20,6 +20,7 @@
 		E122C2732603E4C7006A1670 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2722603E4C6006A1670 /* PhotosViewController.swift */; };
 		E122C2752603ED89006A1670 /* PhotoDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2742603ED89006A1670 /* PhotoDatasource.swift */; };
 		E122C27A26043A10006A1670 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C27926043A10006A1670 /* PhotoCollectionViewCell.swift */; };
+		E122C27E26069217006A1670 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C27D26069217006A1670 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E122C2722603E4C6006A1670 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		E122C2742603ED89006A1670 /* PhotoDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDatasource.swift; sourceTree = "<group>"; };
 		E122C27926043A10006A1670 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E122C27D26069217006A1670 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				E122C27626042083006A1670 /* ViewControllers */,
 				E122C1F025FD617D006A1670 /* AppDelegate.swift */,
+				E122C27D26069217006A1670 /* ImageStore.swift */,
 				E122C1F225FD617D006A1670 /* SceneDelegate.swift */,
 				E122C20A25FE5B06006A1670 /* PhotoStore.swift */,
 				E122C2742603ED89006A1670 /* PhotoDatasource.swift */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E122C27E26069217006A1670 /* ImageStore.swift in Sources */,
 				E122C2512601C171006A1670 /* Photo.swift in Sources */,
 				E122C27A26043A10006A1670 /* PhotoCollectionViewCell.swift in Sources */,
 				E122C2732603E4C7006A1670 /* PhotosViewController.swift in Sources */,
