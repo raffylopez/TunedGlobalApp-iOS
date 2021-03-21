@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
                 print("ERROR: \(error)")
             case .success(let img):
                 DispatchQueue.main.async {
-                    self.imageView.image = img
+                    self.imageView.image = img.0
                 }
             }
         }

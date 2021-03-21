@@ -36,6 +36,9 @@ class PhotosViewController: UIViewController {
             switch result {
             case .success(let photos):
                 print("Found \(photos.count) photos")
+                photos.forEach { (photo) in
+                    self.store.imageStore.image(forKey: photo.photoID)
+                }
                 self.photosDatasource.photos = photos
             case .failure(let error):
                 print("ERROR: \(error)")

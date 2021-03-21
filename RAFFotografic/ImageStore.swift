@@ -29,7 +29,7 @@ class ImageStore {
         guard let persistentImg = UIImage(contentsOfFile: persistentImgUrl.path) else {
             return nil
         }
-        setImage(forKey: key, image: persistentImg) // save on cache miss!
+//        setImage(forKey: key, image: persistentImg) // save on cache miss!
         return persistentImg
     }
 

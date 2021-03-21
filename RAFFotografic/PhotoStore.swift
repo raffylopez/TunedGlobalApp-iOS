@@ -13,6 +13,17 @@ enum PhotoError: Error {
     case missingImageUrl
 }
 
+enum ImageSource {
+    case cache
+    case network
+}
+
+enum ImageResult<UIImage, Error> {
+    case successFromNetwor(UIImage)
+    case successFromCache(UIImage)
+    case failure(Error)
+}
+
 /// Service responsible for downloading photos, photo data, and decoding
 class PhotoStore {
     let imageStore = ImageStore()
@@ -94,11 +105,11 @@ class PhotoStore {
     }
     
     /// Download actual image
-    func fetchImage(for photo: Photo, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func fetchImage(for photo: Photo, completion: @escaping (Result<(UIImage, ImageSource), Error>) -> Void) {
         let photoKey = photo.photoID
         if let image = imageStore.image(forKey: photoKey) {
-            OperationQueue.main.addOperation {
-                completion(.success(image))
+            DispatchQueue.main.async {
+                completion(.success((image, .cache)))
             }
         }
         guard let photoUrl = photo.remoteURL else {
@@ -109,22 +120,24 @@ class PhotoStore {
         let task = session.dataTask(with: request) {
             data, _, error in
             let result = self.processImageRequest(data: data, error: error)
+            // Save to cache
             if case let .success(image) = result {
-                self.imageStore.setImage(forKey: photo.photoID, image: image)
+                self.imageStore.setImage(forKey: photo.photoID, image: image.0)
             }
+            
             OperationQueue.main.addOperation {
                 completion(result)
             }
         }
         task.resume()
     }
-    func processImageRequest(data: Data?, error: Error?) -> Result<UIImage, Error> {
+    func processImageRequest(data: Data?, error: Error?) -> Result<(UIImage, ImageSource), Error> {
         guard let imageData = data, let image = UIImage(data: imageData) else {
             if data == nil {
                 return .failure(error!)
             }
             return .failure(PhotoError.imageCreationError)
         }
-        return .success(image)
+        return .success((image, .network))
     }
 }
