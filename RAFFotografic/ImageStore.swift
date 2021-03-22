@@ -19,7 +19,7 @@ class ImageStore {
         return baseDir
     }
 
-    func image(forKey key: String)->UIImage? {
+    @discardableResult func image(forKey key: String)->UIImage? {
         
         if let cachedImg = cache.object(forKey: key as NSString) {
             return cachedImg

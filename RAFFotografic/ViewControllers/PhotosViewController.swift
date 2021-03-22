@@ -16,6 +16,21 @@ class PhotosViewController: UIViewController {
     override func loadView() {
         super.loadView()
     }
+    
+    fileprivate func reloadCVLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let screenWidth = UIScreen.main.bounds.size.width
+        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        self.collectionView.collectionViewLayout = layout
+    }
+    
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        reloadCVLayout()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
@@ -24,14 +39,9 @@ class PhotosViewController: UIViewController {
         self.collectionView.dropDelegate = self
         self.view.backgroundColor = .systemBackground
         self.collectionView.dataSource = photosDatasource
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = UIScreen.main.bounds.size.width
-        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
-        layout.minimumLineSpacing = 0
         
-        layout.minimumInteritemSpacing = 0
-        self.collectionView.collectionViewLayout = layout
+        reloadCVLayout()
+        
         self.store.fetchInterestingPhotos { result in
             switch result {
             case .success(let photos):
