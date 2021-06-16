@@ -20,7 +20,6 @@ class ImageStore {
     }
 
     @discardableResult func image(forKey key: String)->UIImage? {
-        
         if let cachedImg = cache.object(forKey: key as NSString) {
             return cachedImg
         }
@@ -29,15 +28,13 @@ class ImageStore {
         guard let persistentImg = UIImage(contentsOfFile: persistentImgUrl.path) else {
             return nil
         }
-//        setImage(forKey: key, image: persistentImg) // save on cache miss!
         return persistentImg
     }
 
+    /// Save image to cache and sandbox
     func setImage(forKey key: String, image: UIImage) {
-        // (1) save to cache
         cache.setObject(image, forKey: key as NSString)
         
-        // (2) save to sandbox
         let url = imageUrl(forKey: key)
         if let data = image.jpegData(compressionQuality: 0.5) {
             try? data.write(to: url)

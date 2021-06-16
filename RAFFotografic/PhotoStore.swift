@@ -33,7 +33,7 @@ class PhotoStore {
     }()
     
     func fetchInterestingPhotos(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
-        let request = FlickrAPI.interestingPhotosURLRequest
+        let request = TunedAPI.trendingAlbumsURLRequest
         print(request.url!.absoluteString)
         let task = session.albumDataTask(withUrlRequest: request) { albumData, response, error in
             let releases = albumData?.results.map({ result in
@@ -46,7 +46,7 @@ class PhotoStore {
                         } else if let requestError = error {
                             completion(.failure(requestError))
                         } else {
-                            fatalError()
+                            completion(.failure(PhotoError.missingImageUrl))
                         }
                             
         }

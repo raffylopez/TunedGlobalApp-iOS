@@ -1,5 +1,5 @@
 //
-//  PhotosViewController.swift
+//  TrendingAlbumsViewController.swift
 //  RAFFotografic
 //
 //  Created by Volare on 3/19/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
+class TrendingAlbumsViewController: UIViewController {
     var store: PhotoStore!
     @IBOutlet var collectionView: UICollectionView!
     var photosDatasource = PhotoDatasource()
@@ -33,6 +33,7 @@ class PhotosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Trending"
         self.collectionView.delegate = self
         self.collectionView.dragInteractionEnabled = true
         self.collectionView.dragDelegate = self
@@ -59,7 +60,7 @@ class PhotosViewController: UIViewController {
     }
 }
 
-extension PhotosViewController: UICollectionViewDelegate {
+extension TrendingAlbumsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = self.photosDatasource.photos[indexPath.row]
         print("-----DISPLAYING \(photo.albumID)-----")
@@ -68,7 +69,7 @@ extension PhotosViewController: UICollectionViewDelegate {
                 case let .success(image) = result else {
                     return
             }
-            if let cell = self.collectionView.cellForItem(at: IndexPath(item: photoIndex, section: 0)) as? PhotoCollectionViewCell {
+            if let cell = self.collectionView.cellForItem(at: IndexPath(item: photoIndex, section: 0)) as? AlbumPhotoCell {
                 cell.update(displaying: image)
             }
 
@@ -76,7 +77,7 @@ extension PhotosViewController: UICollectionViewDelegate {
     }
 }
 
-extension PhotosViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
+extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         if collectionView.hasActiveDrag {
             return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)

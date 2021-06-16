@@ -13,67 +13,19 @@ enum Endpoint: String {
     case recentPhotos = "flickr.photos.getRecent"
 }
 
-struct FlickrAPI {
-    private static let baseURLString = "https://api-metadata-connect.tunedglobal.com/api/v2.1/albums/trending?offset=1&count=50"
-    private static let apiKey = "luJdnSN3muj1Wf1Q"
-
-    
-    /// Decode JSON data, trim out photos with no remote url's
-//    static func photos(fromJson data: Data) -> Result<[PrimaryRelease], Error> {
-//        do {
-//            let decoder = JSONDecoder()
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//            formatter.locale = Locale(identifier: "en_US_POSIX")
-//            formatter.timeZone = TimeZone(secondsFromGMT: 0)
-//            decoder.dateDecodingStrategy = .formatted(formatter)
-//
-//            let flickrResponse = try decoder.decode(FlickrResponse.self, from: data)
-//            return .success(flickrResponse.photosInfo.photos.filter({ $0.remoteURL != nil
-//            }))
-//        } catch {
-//            return .failure(error)
-//        }
-//    }
-    /// Assemble URL
-    private static func flickrURL(endPoint: Endpoint, parameters: [String: String]?) -> URL {
-        var request = URLRequest(url: URL(string:baseURLString)!)
-        request.setValue(apiKey, forHTTPHeaderField: "StoreId")
-        return request.url!
-    }
+struct TunedAPI {
+    private static let baseURLString = "https://api-metadata-connect.tunedglobal.com/api/v2.1/albums/trending"
+    private static let basicSecurityHeaderField = "StoreId"
+    private static let storeIdValue = "luJdnSN3muj1Wf1Q"
     
     private static func flickrURLRequest(endPoint: Endpoint, parameters: [String: String]?) -> URLRequest {
-        var request = URLRequest(url: URL(string:baseURLString)!)
-        request.setValue(apiKey, forHTTPHeaderField: "StoreId")
+        var urlComponents = URLComponents(string: baseURLString)
+        let queryItems = [URLQueryItem(name: "offset", value: "1"), URLQueryItem(name: "count", value: "50")]
+        urlComponents?.queryItems = queryItems
+        var request = URLRequest(url: (urlComponents?.url)!)
+        request.setValue(storeIdValue, forHTTPHeaderField: basicSecurityHeaderField)
         return request
     }
 
     static let interestingPhotosURLRequest: URLRequest = flickrURLRequest(endPoint: .interestingPhotos, parameters: nil)
-    static let interestingPhotosURL: URL = flickrURL(endPoint: .interestingPhotos, parameters: nil)
-    static let recentPhotosURL: URL = flickrURL(endPoint: .recentPhotos, parameters: ["extras": "url_z,date_taken"])
-}
-
-/// Represents a group of photos info
-struct FlickrResponse: Codable {
-    let photosInfo: FlickrPhotosResponse
-
-    enum CodingKeys: String, CodingKey {
-        case photosInfo = "photos"
-    }
-}
-
-struct TuneGlobalResponse: Codable {
-    let image: Photo
-    enum CodingKeys: String, CodingKey {
-        case image = "Image"
-    }
-}
-
-/// Represents photos info { photos: [photo] }
-struct FlickrPhotosResponse: Codable {
-    var photos: [Photo]
-
-    enum CodingKeys: String, CodingKey {
-        case photos = "photo"
-    }
 }
