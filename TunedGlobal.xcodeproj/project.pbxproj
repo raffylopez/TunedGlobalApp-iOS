@@ -13,7 +13,7 @@
 		E122C1FA25FD6180006A1670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E122C1F925FD6180006A1670 /* Assets.xcassets */; };
 		E122C1FD25FD6180006A1670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */; };
 		E122C20525FD7598006A1670 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */; };
-		E122C20725FD9061006A1670 /* TunedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20625FD9061006A1670 /* TunedAPI.swift */; };
+		E122C20725FD9061006A1670 /* TunedGlobalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20625FD9061006A1670 /* TunedGlobalAPI.swift */; };
 		E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20A25FE5B06006A1670 /* PhotoStore.swift */; };
 		E122C2732603E4C7006A1670 /* TrendingAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2722603E4C6006A1670 /* TrendingAlbumsViewController.swift */; };
 		E122C2752603ED89006A1670 /* PhotoDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2742603ED89006A1670 /* PhotoDatasource.swift */; };
@@ -30,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E122C1ED25FD617D006A1670 /* RAFFotografic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAFFotografic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E122C1ED25FD617D006A1670 /* TunedGlobal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TunedGlobal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E122C1F025FD617D006A1670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E122C1F225FD617D006A1670 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E122C1F725FD617D006A1670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,13 +38,12 @@
 		E122C1FC25FD6180006A1670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E122C1FE25FD6180006A1670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		E122C20625FD9061006A1670 /* TunedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedAPI.swift; sourceTree = "<group>"; };
+		E122C20625FD9061006A1670 /* TunedGlobalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedGlobalAPI.swift; sourceTree = "<group>"; };
 		E122C20A25FE5B06006A1670 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		E122C2722603E4C6006A1670 /* TrendingAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAlbumsViewController.swift; sourceTree = "<group>"; };
 		E122C2742603ED89006A1670 /* PhotoDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDatasource.swift; sourceTree = "<group>"; };
 		E122C27926043A10006A1670 /* AlbumPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoCell.swift; sourceTree = "<group>"; };
 		E122C27D26069217006A1670 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
-		E1F47FA4267A426C00E4DAF6 /* TunedGlobalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedGlobalAPI.swift; sourceTree = "<group>"; };
 		E1F47FA8267A697300E4DAF6 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
 		E1F47FAC267A69A000E4DAF6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		E1F47FB0267A69CC00E4DAF6 /* AlbumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumType.swift; sourceTree = "<group>"; };
@@ -69,8 +68,7 @@
 		E122C1E425FD617D006A1670 = {
 			isa = PBXGroup;
 			children = (
-				E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */,
-				E122C1EF25FD617D006A1670 /* RAFFotografic */,
+				E122C1EF25FD617D006A1670 /* TunedGlobal */,
 				E122C1EE25FD617D006A1670 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,12 +76,12 @@
 		E122C1EE25FD617D006A1670 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E122C1ED25FD617D006A1670 /* RAFFotografic.app */,
+				E122C1ED25FD617D006A1670 /* TunedGlobal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E122C1EF25FD617D006A1670 /* RAFFotografic */ = {
+		E122C1EF25FD617D006A1670 /* TunedGlobal */ = {
 			isa = PBXGroup;
 			children = (
 				E122C27626042083006A1670 /* ViewControllers */,
@@ -97,23 +95,32 @@
 				E122C1F925FD6180006A1670 /* Assets.xcassets */,
 				E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */,
 				E122C1FE25FD6180006A1670 /* Info.plist */,
+				E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */,
 			);
-			path = RAFFotografic;
+			path = TunedGlobal;
 			sourceTree = "<group>";
 		};
 		E122C27626042083006A1670 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				E122C2722603E4C6006A1670 /* TrendingAlbumsViewController.swift */,
-				E122C27926043A10006A1670 /* AlbumPhotoCell.swift */,
+				E1C7ABED267AE4B400B61B0A /* Components */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E1C7ABED267AE4B400B61B0A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E122C27926043A10006A1670 /* AlbumPhotoCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E1F47FA7267A695B00E4DAF6 /* TunedGlobalAPI */ = {
 			isa = PBXGroup;
 			children = (
-				E122C20625FD9061006A1670 /* TunedAPI.swift */,
+				E122C20625FD9061006A1670 /* TunedGlobalAPI.swift */,
 				E1F47FC0267A6A6200E4DAF6 /* Volume.swift */,
 				E1F47FB8267A6A2D00E4DAF6 /* PrimaryRelease.swift */,
 				E1F47FBC267A6A4B00E4DAF6 /* Label.swift */,
@@ -122,7 +129,6 @@
 				E1F47FAC267A69A000E4DAF6 /* Album.swift */,
 				E1F47FA8267A697300E4DAF6 /* AlbumData.swift */,
 				E1F47FC4267A6A7500E4DAF6 /* JSONSchemaSupport.swift */,
-				E1F47FA4267A426C00E4DAF6 /* TunedGlobalAPI.swift */,
 			);
 			path = TunedGlobalAPI;
 			sourceTree = "<group>";
@@ -130,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E122C1EC25FD617D006A1670 /* RAFFotografic */ = {
+		E122C1EC25FD617D006A1670 /* TunedGlobal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "RAFFotografic" */;
+			buildConfigurationList = E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "TunedGlobal" */;
 			buildPhases = (
 				E122C1E925FD617D006A1670 /* Sources */,
 				E122C1EA25FD617D006A1670 /* Frameworks */,
@@ -142,9 +148,9 @@
 			);
 			dependencies = (
 			);
-			name = RAFFotografic;
+			name = TunedGlobal;
 			productName = RAFFotografic;
-			productReference = E122C1ED25FD617D006A1670 /* RAFFotografic.app */;
+			productReference = E122C1ED25FD617D006A1670 /* TunedGlobal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "RAFFotografic" */;
+			buildConfigurationList = E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "TunedGlobal" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,7 +181,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E122C1EC25FD617D006A1670 /* RAFFotografic */,
+				E122C1EC25FD617D006A1670 /* TunedGlobal */,
 			);
 		};
 /* End PBXProject section */
@@ -214,7 +220,7 @@
 				E1F47FBD267A6A4C00E4DAF6 /* Label.swift in Sources */,
 				E1F47FB5267A69FA00E4DAF6 /* Artist.swift in Sources */,
 				E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */,
-				E122C20725FD9061006A1670 /* TunedAPI.swift in Sources */,
+				E122C20725FD9061006A1670 /* TunedGlobalAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -344,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -360,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV7ZYWZYR7;
-				INFOPLIST_FILE = RAFFotografic/Info.plist;
+				INFOPLIST_FILE = TunedGlobal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BV7ZYWZYR7;
-				INFOPLIST_FILE = RAFFotografic/Info.plist;
+				INFOPLIST_FILE = TunedGlobal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "RAFFotografic" */ = {
+		E122C1E825FD617D006A1670 /* Build configuration list for PBXProject "TunedGlobal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E122C1FF25FD6180006A1670 /* Debug */,
@@ -402,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "RAFFotografic" */ = {
+		E122C20125FD6180006A1670 /* Build configuration list for PBXNativeTarget "TunedGlobal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E122C20225FD6180006A1670 /* Debug */,

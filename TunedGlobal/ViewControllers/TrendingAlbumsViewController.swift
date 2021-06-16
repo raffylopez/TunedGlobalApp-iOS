@@ -7,22 +7,19 @@
 
 import UIKit
 
+// MARK: - TrendingAlbumsViewController
 class TrendingAlbumsViewController: UIViewController {
+    
     var store: PhotoStore!
     @IBOutlet var collectionView: UICollectionView!
     var photosDatasource = PhotoDatasource()
 
-    override func loadView() {
-        super.loadView()
-    }
-    
-    @objc fileprivate func relayout() {
+    @objc private func reloadLayout() {
         self.collectionView.setNeedsLayout()
-        self.collectionView.layoutSubviews()
         self.collectionView.layoutIfNeeded()
     }
     
-    @objc fileprivate func reloadCollectionViewLayout() {
+    private func reloadCollectionViewLayout() {
         let cellPadding: CGFloat = 4
         let cellsPerRow: CGFloat = 3
         let layout = UICollectionViewFlowLayout()
@@ -34,10 +31,6 @@ class TrendingAlbumsViewController: UIViewController {
         self.collectionView.collectionViewLayout = layout
     }
     
-    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-            self.reloadCollectionViewLayout()
-    }
-    
     private func setupLayout() {
         self.title = "Trending"
         self.collectionView.delegate = self
@@ -47,12 +40,12 @@ class TrendingAlbumsViewController: UIViewController {
         self.collectionView.dataSource = photosDatasource
         self.collectionView.backgroundColor = .systemBackground
         self.view.backgroundColor = .systemBackground
-        NotificationCenter.default.addObserver(self, selector: #selector(relayout), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadLayout), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.reloadCollectionViewLayout()
+    // MARK: - View Lifecycle
+    override func loadView() {
+        super.loadView()
     }
 
     override func viewDidLoad() {
@@ -61,7 +54,6 @@ class TrendingAlbumsViewController: UIViewController {
         self.store.fetchInterestingPhotos { result in
             switch result {
             case .success(let photos):
-//                print("Found \(photos.count) photos")
                 photos.forEach { (photo) in
                     self.store.imageStore.image(forKey: "\(photo.albumID)")
                 }
@@ -73,12 +65,22 @@ class TrendingAlbumsViewController: UIViewController {
             self.collectionView.reloadSections(IndexSet(integer: 0))
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.reloadCollectionViewLayout()
+    }
+    
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+            self.reloadCollectionViewLayout()
+    }
 }
 
+// MARK: - UICollectionViewDelegate
 extension TrendingAlbumsViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = self.photosDatasource.photos[indexPath.row]
-//        print("-----DISPLAYING \(photo.albumID)-----")
             store.fetchImage(for: photo, downsampleTo: cell.bounds.size, scaleTo: collectionView.traitCollection.displayScale) { result in
             guard let photoIndex = self.photosDatasource.photos.firstIndex(of: photo),
                 case let .success(image) = result else {
@@ -87,11 +89,11 @@ extension TrendingAlbumsViewController: UICollectionViewDelegate {
             if let cell = self.collectionView.cellForItem(at: IndexPath(item: photoIndex, section: 0)) as? AlbumPhotoCell {
                 cell.update(displaying: image)
             }
-
         }
     }
 }
 
+// MARK: - UICollectionViewDragDelegate, UICollectionViewDropDelegate
 extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
@@ -101,7 +103,7 @@ extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollecti
         return UICollectionViewDropProposal(operation: .forbidden)
     }
     
-    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
+    private func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
         if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
             collectionView.performBatchUpdates({
                 self.photosDatasource.photos.remove(at: sourceIndexPath.item)
@@ -133,6 +135,4 @@ extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollecti
         dragItem.localObject = item
         return [dragItem]
     }
-    
-    
 }

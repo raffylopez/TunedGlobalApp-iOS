@@ -8,10 +8,11 @@
 import UIKit
 
 class AlbumPhotoCell: UICollectionViewCell {
+    
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
 
-    fileprivate func makeImageVisible(img: UIImage) {
+    private func makeImageVisible(img: UIImage) {
         self.imageView.layer.opacity = 1
         self.imageView.image = img
     }
@@ -35,5 +36,4 @@ class AlbumPhotoCell: UICollectionViewCell {
         imageView.layer.opacity = 0
         imageView.image = nil
     }
-
 }

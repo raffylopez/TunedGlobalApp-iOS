@@ -1,12 +1,14 @@
 //
-// PrimaryRelease.swift
-// TunedGlobal
+//  PrimaryRelease.swift
+//  TunedGlobal
+//
+//  Copyright © 2021 Raf. All rights reserved.
 
-// Usage:
+//  Usage:
 //
 //   let primaryRelease = try? newJSONDecoder().decode(PrimaryRelease.self, from: jsonData)
 //
-// To read values from URLs:
+//   To read values from URLs:
 //
 //   let task = URLSession.shared.primaryReleaseTask(with: url) { primaryRelease, response, error in
 //     if let primaryRelease = primaryRelease {
@@ -19,6 +21,7 @@ import Foundation
 
 // MARK: - PrimaryRelease
 struct PrimaryRelease: Codable {
+    
     let releaseID, albumID: Int
     let artists: [Artist]
     let name: String

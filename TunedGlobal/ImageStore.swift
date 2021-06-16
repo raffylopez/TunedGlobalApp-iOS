@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 
 class ImageStore {
+    
     let cache = NSCache<NSString, UIImage>()
     
     private func imageUrl(forKey key: String) -> URL {
@@ -41,13 +42,14 @@ class ImageStore {
             fatalError("Can't save image into docs directory")
         }
     }
-    func removeImage(forKey key: String) {
+    func removeImage(forKey key: String)  {
         cache.removeObject(forKey: key as NSString)
         let persistentImgUrl = imageUrl(forKey: key)
         do {
             try FileManager.default.removeItem(at: persistentImgUrl)
         } catch let err {
             print("Unable to remove corresponding file from disk: \(err)")
+            
         }
     }
 }

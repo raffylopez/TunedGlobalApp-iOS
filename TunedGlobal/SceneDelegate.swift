@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         let navControllerId = "StoryboardNavController"
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame:UIScreen.main.bounds)
@@ -39,7 +38,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {    }
 
     func sceneDidEnterBackground(_ scene: UIScene) {    }
-
-
 }
 
