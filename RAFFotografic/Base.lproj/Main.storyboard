@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uHJ-yd-M2f">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uHJ-yd-M2f">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PVd-9T-TRM">
@@ -40,16 +40,16 @@
                                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </activityIndicatorView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-Ej-SHQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <rect key="frame" x="4" y="4" width="120" height="120"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZZd-Ej-SHQ" firstAttribute="leading" secondItem="bWa-fO-LpG" secondAttribute="leading" id="7LF-eG-TIn"/>
                                                 <constraint firstItem="REz-AZ-wbS" firstAttribute="centerX" secondItem="bWa-fO-LpG" secondAttribute="centerX" id="7sQ-6J-bU8"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZZd-Ej-SHQ" secondAttribute="trailing" id="BU6-OL-WLw"/>
                                                 <constraint firstItem="REz-AZ-wbS" firstAttribute="centerY" secondItem="bWa-fO-LpG" secondAttribute="centerY" id="LXN-yf-t3b"/>
-                                                <constraint firstItem="ZZd-Ej-SHQ" firstAttribute="top" secondItem="bWa-fO-LpG" secondAttribute="top" id="Sn2-xS-rMe"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZZd-Ej-SHQ" secondAttribute="bottom" id="vjq-Sq-fMr"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZZd-Ej-SHQ" secondAttribute="bottom" constant="4" id="W5H-Kj-qcf"/>
+                                                <constraint firstItem="ZZd-Ej-SHQ" firstAttribute="leading" secondItem="bWa-fO-LpG" secondAttribute="leading" constant="4" id="fLf-9v-spq"/>
+                                                <constraint firstItem="ZZd-Ej-SHQ" firstAttribute="top" secondItem="bWa-fO-LpG" secondAttribute="top" constant="4" id="tnq-AO-RD9"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZZd-Ej-SHQ" secondAttribute="trailing" constant="4" id="znt-wj-evO"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

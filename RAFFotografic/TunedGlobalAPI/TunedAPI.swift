@@ -14,7 +14,7 @@ enum Endpoint: String {
 
 struct TunedAPI {
     private static let baseURLString = "https://api-metadata-connect.tunedglobal.com/api/v2.1"
-    private static let params = ["offset": "1", "count": "40"]
+    private static let params = ["offset": "1", "count": "50"]
     private static let headers = ["StoreId": "luJdnSN3muj1Wf1Q"]
     
     private static func tunedURLRequest(endPoint: Endpoint, parameters: [String: String]?, headers: [String: String]?) -> URLRequest {

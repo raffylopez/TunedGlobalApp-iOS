@@ -89,6 +89,7 @@ class PhotoStore {
             DispatchQueue.main.async {
                 completion(.success((image, .cache)))
             }
+            return
         }
         guard let photoUrl = photo.image else {
             completion(.failure(PhotoError.missingImageUrl))

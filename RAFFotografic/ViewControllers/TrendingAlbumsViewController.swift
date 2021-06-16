@@ -17,36 +17,53 @@ class TrendingAlbumsViewController: UIViewController {
         super.loadView()
     }
     
-    fileprivate func reloadCVLayout() {
+    @objc fileprivate func relayout() {
+        self.collectionView.setNeedsLayout()
+        self.collectionView.layoutSubviews()
+        self.collectionView.layoutIfNeeded()
+    }
+    
+    @objc fileprivate func reloadCollectionViewLayout() {
+        let cellPadding: CGFloat = 4
+        let cellsPerRow: CGFloat = 3
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let screenWidth = UIScreen.main.bounds.size.width
-        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.sectionInset = UIEdgeInsets(top: cellPadding, left: cellPadding, bottom: cellPadding, right: cellPadding)
+        let screenWidth = UIScreen.main.bounds.size.width - (cellPadding * 2)
+        layout.itemSize = CGSize(width: screenWidth/cellsPerRow, height: screenWidth/cellsPerRow)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         self.collectionView.collectionViewLayout = layout
     }
     
     override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        reloadCVLayout()
+            self.reloadCollectionViewLayout()
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    private func setupLayout() {
         self.title = "Trending"
         self.collectionView.delegate = self
         self.collectionView.dragInteractionEnabled = true
         self.collectionView.dragDelegate = self
         self.collectionView.dropDelegate = self
-        self.view.backgroundColor = .systemBackground
         self.collectionView.dataSource = photosDatasource
         self.collectionView.backgroundColor = .systemBackground
-        reloadCVLayout()
-        
+        self.view.backgroundColor = .systemBackground
+        NotificationCenter.default.addObserver(self, selector: #selector(relayout), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.reloadCollectionViewLayout()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupLayout()
         self.store.fetchInterestingPhotos { result in
             switch result {
             case .success(let photos):
-                print("Found \(photos.count) photos")
+//                print("Found \(photos.count) photos")
                 photos.forEach { (photo) in
                     self.store.imageStore.image(forKey: "\(photo.albumID)")
                 }
@@ -63,8 +80,8 @@ class TrendingAlbumsViewController: UIViewController {
 extension TrendingAlbumsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = self.photosDatasource.photos[indexPath.row]
-        print("-----DISPLAYING \(photo.albumID)-----")
-        store.fetchImage(for: photo, downsampleTo: cell.bounds.size, scaleTo: collectionView.traitCollection.displayScale) { result in
+//        print("-----DISPLAYING \(photo.albumID)-----")
+            store.fetchImage(for: photo, downsampleTo: cell.bounds.size, scaleTo: collectionView.traitCollection.displayScale) { result in
             guard let photoIndex = self.photosDatasource.photos.firstIndex(of: photo),
                 case let .success(image) = result else {
                     return
@@ -78,12 +95,14 @@ extension TrendingAlbumsViewController: UICollectionViewDelegate {
 }
 
 extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         if collectionView.hasActiveDrag {
             return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
         }
         return UICollectionViewDropProposal(operation: .forbidden)
     }
+    
     fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
         if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
             collectionView.performBatchUpdates({
