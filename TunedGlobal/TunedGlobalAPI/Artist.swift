@@ -1,12 +1,14 @@
 //
-// Artist.swift
-// TunedGlobal
+//  Artist.swift
+//  TunedGlobal
+//
+//  Copyright © 2021 Raf. All rights reserved.
 
-// Usage:
+//  Usage:
 //
 //   let artist = try? newJSONDecoder().decode(Artist.self, from: jsonData)
 //
-// To read values from URLs:
+//   To read values from URLs:
 //
 //   let task = URLSession.shared.artistTask(with: url) { artist, response, error in
 //     if let artist = artist {
@@ -19,6 +21,7 @@ import Foundation
 
 // MARK: - Artist
 struct Artist: Codable {
+    
     let artistID: Int
     let name: String
 

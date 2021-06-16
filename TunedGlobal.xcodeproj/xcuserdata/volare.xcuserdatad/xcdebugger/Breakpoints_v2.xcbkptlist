@@ -20,5 +20,62 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EF545F5-477E-4A86-8EE3-37B3C8362F48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "TunedGlobal/PhotoStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "fetchInterestingPhotos(completion:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "@request.url!.absoluteString@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "2EF545F5-477E-4A86-8EE3-37B3C8362F48 - 7959ee1cf2d0ba00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TunedGlobal.PhotoStore.fetchInterestingPhotos(completion: (Swift.Result&lt;Swift.Array&lt;TunedGlobal.PrimaryRelease&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TunedGlobal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/volare/Desktop/xcode%20projects/2021/Projects/BigNerd/TunedGlobal/TunedGlobal/PhotoStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "819">
+               </Location>
+               <Location
+                  uuid = "2EF545F5-477E-4A86-8EE3-37B3C8362F48 - ebf8efab368581e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;TunedGlobal.AlbumsData&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TunedGlobal.PhotoStore.fetchInterestingPhotos(completion: (Swift.Result&lt;Swift.Array&lt;TunedGlobal.PrimaryRelease&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TunedGlobal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/volare/Desktop/xcode%20projects/2021/Projects/BigNerd/TunedGlobal/TunedGlobal/PhotoStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "110">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

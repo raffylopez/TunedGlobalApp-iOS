@@ -1,12 +1,14 @@
 //
-// Album.swift
-// TunedGlobal
+//  Album.swift
+//  TunedGlobal
+//
+//  Copyright © 2021 Raf. All rights reserved.
 
-// Usage:
+//  Usage:
 //
 //   let result = try? newJSONDecoder().decode(Result.self, from: jsonData)
 //
-// To read values from URLs:
+//   To read values from URLs:
 //
 //   let task = URLSession.shared.resultTask(with: url) { result, response, error in
 //     if let result = result {
@@ -19,6 +21,7 @@ import Foundation
 
 // MARK: - Result
 struct Album: Codable {
+    
     let albumID: Int
     let name, upc: String
     let artists: [Artist]

@@ -1,12 +1,12 @@
 //
-// Label.swift
-// TunedGlobal
+//  Label.swift
+//  TunedGlobal
 //
-// Usage:
+//  Usage:
 //
 //   let label = try? newJSONDecoder().decode(Label.self, from: jsonData)
 //
-// To read values from URLs:
+//   To read values from URLs:
 //
 //   let task = URLSession.shared.labelTask(with: url) { label, response, error in
 //     if let label = label {
@@ -19,6 +19,7 @@ import Foundation
 
 // MARK: - Label
 struct Label: Codable {
+    
     let labelID, name: String?
 
     enum CodingKeys: String, CodingKey {

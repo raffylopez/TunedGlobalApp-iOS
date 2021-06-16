@@ -1,6 +1,8 @@
 //
-// JSONSchemaSupport.swift
-// TunedGlobal
+//  JSONSchemaSupport.swift
+//  TunedGlobal
+//
+//  Copyright © 2021 Raf. All rights reserved.
 
 import Foundation
 
@@ -25,6 +27,7 @@ func newJSONEncoder() -> JSONEncoder {
 // MARK: - URLSession response handlers
 
 extension URLSession {
+    
     fileprivate func codableTask<T: Codable>(with urlRequest: URLRequest, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         return self.dataTask(with: urlRequest) { data, response, error in
             guard let data = data, error == nil else {

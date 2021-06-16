@@ -33,7 +33,6 @@ class PhotoStore {
     
     func fetchInterestingPhotos(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
         let request = TunedAPI.trendingAlbumsURLRequest
-        print(request.url!.absoluteString)
         let task = session.albumDataTask(withUrlRequest: request) { albumData, response, error in
             guard let releases = albumData?.results.map({ result in
                 result.primaryRelease
@@ -69,7 +68,7 @@ class PhotoStore {
         let task = session.dataTask(with: request) {
             data, _, error in
             let result = self.processImageRequest(data: data, error: error)
-            // Save to cache
+            
             if case let .success(image) = result {
                 self.imageStore.setImage(forKey: photoKey, image: image.0)
             }
@@ -96,12 +95,14 @@ class PhotoStore {
         }
         let request = URLRequest(url: URL(string:photoUrl)!)
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            let image: (UIImage, ImageSource) = (self.downsample(imageAt: request.url!, to: size, scale: scale), .network)
-                self.imageStore.setImage(forKey: photoKey, image: image.0)
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            if let self = self {
+                let image: (UIImage, ImageSource) = (self.downsample(imageAt: request.url!, to: size, scale: scale), .network)
+                    self.imageStore.setImage(forKey: photoKey, image: image.0)
 
-            OperationQueue.main.addOperation {
-                completion(.success(image))
+                OperationQueue.main.addOperation {
+                    completion(.success(image))
+                }
             }
         }
     }
@@ -116,20 +117,22 @@ class PhotoStore {
         return .success((image, .network))
     }
     
+    // Attribution: WWDC 2018 - Image Downsampling
     private func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat) -> UIImage {
-       let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
-       let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
+        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
+
+        let maxDimentionInPixels = max(pointSize.width, pointSize.height) * scale
      
-       let maxDimentionInPixels = max(pointSize.width, pointSize.height) * scale
+        let downsampledOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
+        kCGImageSourceShouldCacheImmediately: true,
+        kCGImageSourceCreateThumbnailWithTransform: true,
+        kCGImageSourceThumbnailMaxPixelSize: maxDimentionInPixels] as CFDictionary
+        let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampledOptions)!
      
-       let downsampledOptions = [kCGImageSourceCreateThumbnailFromImageAlways: true,
-     kCGImageSourceShouldCacheImmediately: true,
-     kCGImageSourceCreateThumbnailWithTransform: true,
-     kCGImageSourceThumbnailMaxPixelSize: maxDimentionInPixels] as CFDictionary
-      let downsampledImage =     CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampledOptions)!
-     
-       return UIImage(cgImage: downsampledImage)
+        return UIImage(cgImage: downsampledImage)
     }
+    
 }
 
 
