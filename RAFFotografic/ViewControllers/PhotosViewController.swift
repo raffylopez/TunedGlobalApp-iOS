@@ -39,7 +39,7 @@ class PhotosViewController: UIViewController {
         self.collectionView.dropDelegate = self
         self.view.backgroundColor = .systemBackground
         self.collectionView.dataSource = photosDatasource
-        
+        self.collectionView.backgroundColor = .systemBackground
         reloadCVLayout()
         
         self.store.fetchInterestingPhotos { result in
@@ -47,7 +47,7 @@ class PhotosViewController: UIViewController {
             case .success(let photos):
                 print("Found \(photos.count) photos")
                 photos.forEach { (photo) in
-                    self.store.imageStore.image(forKey: photo.photoID)
+                    self.store.imageStore.image(forKey: "\(photo.albumID)")
                 }
                 self.photosDatasource.photos = photos
             case .failure(let error):
@@ -62,7 +62,8 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = self.photosDatasource.photos[indexPath.row]
-        store.fetchImage(for: photo) { result in
+        print("-----DISPLAYING \(photo.albumID)-----")
+        store.fetchImage(for: photo, downsampleTo: cell.bounds.size, scaleTo: collectionView.traitCollection.displayScale) { result in
             guard let photoIndex = self.photosDatasource.photos.firstIndex(of: photo),
                 case let .success(image) = result else {
                     return
@@ -86,7 +87,7 @@ extension PhotosViewController: UICollectionViewDragDelegate, UICollectionViewDr
         if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
             collectionView.performBatchUpdates({
                 self.photosDatasource.photos.remove(at: sourceIndexPath.item)
-                self.photosDatasource.photos.insert(item.dragItem.localObject as! Photo, at: destinationIndexPath.item)
+                self.photosDatasource.photos.insert(item.dragItem.localObject as! PrimaryRelease, at: destinationIndexPath.item)
                 collectionView.deleteItems(at: [sourceIndexPath])
                 collectionView.insertItems(at: [destinationIndexPath])
             }, completion: nil)
@@ -109,7 +110,7 @@ extension PhotosViewController: UICollectionViewDragDelegate, UICollectionViewDr
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let item = self.photosDatasource.photos[indexPath.row]
-        let itemProvider = NSItemProvider(object: item.photoID as NSString)
+        let itemProvider = NSItemProvider(object: "\(item.albumID)" as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         return [dragItem]

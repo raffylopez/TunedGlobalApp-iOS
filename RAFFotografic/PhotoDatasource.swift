@@ -9,7 +9,7 @@
 import UIKit
 
 class PhotoDatasource: NSObject, UICollectionViewDataSource {
-    var photos = [Photo]()
+    var photos = [PrimaryRelease]()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
