@@ -24,15 +24,16 @@ enum ImageResult<UIImage, Error> {
 }
 
 /// Service for downloading photos, photo data, and decoding
-class PhotoStore {
+class PrimaryReleaseStore {
     let imageStore = ImageStore()
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
     
-    func fetchInterestingPhotos(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
+    func fetchPrimaryReleases(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
         let request = TunedGlobalAPI.trendingAlbumsURLRequest
+
         let task = session.albumDataTask(withUrlRequest: request) { albumData, response, error in
             guard let releases = albumData?.results.map({ result in
                 result.primaryRelease

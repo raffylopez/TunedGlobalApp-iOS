@@ -7,15 +7,15 @@
 
 import UIKit
 
-class PhotoDatasource: NSObject, UICollectionViewDataSource {
+class PrimaryReleaseDatasource: NSObject, UICollectionViewDataSource {
     
-    var photos = [PrimaryRelease]()
+    var primaryReleases = [PrimaryRelease]()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return primaryReleases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = "PhotoCollectionViewCell"
+        let identifier = "AlbumPhotoCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! AlbumPhotoCell
         cell.update(displaying: nil)
         return cell

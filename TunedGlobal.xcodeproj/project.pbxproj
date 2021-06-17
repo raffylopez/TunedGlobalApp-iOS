@@ -14,9 +14,9 @@
 		E122C1FD25FD6180006A1670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */; };
 		E122C20525FD7598006A1670 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */; };
 		E122C20725FD9061006A1670 /* TunedGlobalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20625FD9061006A1670 /* TunedGlobalAPI.swift */; };
-		E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20A25FE5B06006A1670 /* PhotoStore.swift */; };
+		E122C20B25FE5B06006A1670 /* PrimaryReleaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C20A25FE5B06006A1670 /* PrimaryReleaseStore.swift */; };
 		E122C2732603E4C7006A1670 /* TrendingAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2722603E4C6006A1670 /* TrendingAlbumsViewController.swift */; };
-		E122C2752603ED89006A1670 /* PhotoDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2742603ED89006A1670 /* PhotoDatasource.swift */; };
+		E122C2752603ED89006A1670 /* PrimaryReleaseDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C2742603ED89006A1670 /* PrimaryReleaseDatasource.swift */; };
 		E122C27A26043A10006A1670 /* AlbumPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C27926043A10006A1670 /* AlbumPhotoCell.swift */; };
 		E122C27E26069217006A1670 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122C27D26069217006A1670 /* ImageStore.swift */; };
 		E1F47FAD267A69A000E4DAF6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F47FAC267A69A000E4DAF6 /* Album.swift */; };
@@ -39,9 +39,9 @@
 		E122C1FE25FD6180006A1670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E122C20425FD7598006A1670 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		E122C20625FD9061006A1670 /* TunedGlobalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedGlobalAPI.swift; sourceTree = "<group>"; };
-		E122C20A25FE5B06006A1670 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		E122C20A25FE5B06006A1670 /* PrimaryReleaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryReleaseStore.swift; sourceTree = "<group>"; };
 		E122C2722603E4C6006A1670 /* TrendingAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAlbumsViewController.swift; sourceTree = "<group>"; };
-		E122C2742603ED89006A1670 /* PhotoDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDatasource.swift; sourceTree = "<group>"; };
+		E122C2742603ED89006A1670 /* PrimaryReleaseDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryReleaseDatasource.swift; sourceTree = "<group>"; };
 		E122C27926043A10006A1670 /* AlbumPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoCell.swift; sourceTree = "<group>"; };
 		E122C27D26069217006A1670 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E1F47FA8267A697300E4DAF6 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
@@ -88,9 +88,9 @@
 				E1F47FA7267A695B00E4DAF6 /* TunedGlobalAPI */,
 				E122C1F025FD617D006A1670 /* AppDelegate.swift */,
 				E122C1F225FD617D006A1670 /* SceneDelegate.swift */,
+				E122C20A25FE5B06006A1670 /* PrimaryReleaseStore.swift */,
+				E122C2742603ED89006A1670 /* PrimaryReleaseDatasource.swift */,
 				E122C27D26069217006A1670 /* ImageStore.swift */,
-				E122C20A25FE5B06006A1670 /* PhotoStore.swift */,
-				E122C2742603ED89006A1670 /* PhotoDatasource.swift */,
 				E122C1F625FD617D006A1670 /* Main.storyboard */,
 				E122C1F925FD6180006A1670 /* Assets.xcassets */,
 				E122C1FB25FD6180006A1670 /* LaunchScreen.storyboard */,
@@ -215,11 +215,11 @@
 				E122C2732603E4C7006A1670 /* TrendingAlbumsViewController.swift in Sources */,
 				E122C20525FD7598006A1670 /* UIViewController+Extensions.swift in Sources */,
 				E122C1F125FD617D006A1670 /* AppDelegate.swift in Sources */,
-				E122C2752603ED89006A1670 /* PhotoDatasource.swift in Sources */,
+				E122C2752603ED89006A1670 /* PrimaryReleaseDatasource.swift in Sources */,
 				E122C1F325FD617D006A1670 /* SceneDelegate.swift in Sources */,
 				E1F47FBD267A6A4C00E4DAF6 /* Label.swift in Sources */,
 				E1F47FB5267A69FA00E4DAF6 /* Artist.swift in Sources */,
-				E122C20B25FE5B06006A1670 /* PhotoStore.swift in Sources */,
+				E122C20B25FE5B06006A1670 /* PrimaryReleaseStore.swift in Sources */,
 				E122C20725FD9061006A1670 /* TunedGlobalAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

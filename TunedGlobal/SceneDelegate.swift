@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = storyBoard.instantiateViewController(identifier: navControllerId) as! UINavigationController
         
         let initialVc = navController.viewControllers.first as! TrendingAlbumsViewController
-        initialVc.store = PhotoStore()
+        initialVc.store = PrimaryReleaseStore()
         
         navController.navigationBar.prefersLargeTitles = true
         window?.overrideUserInterfaceStyle = .dark
