@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let navController = storyBoard.instantiateViewController(identifier: navControllerId) as! UINavigationController
         
-        let initialVc = navController.viewControllers.first as! TrendingAlbumsViewController
-        initialVc.store = PrimaryReleaseStore()
+        let initialVc = navController.viewControllers.first as! AlbumsViewController
+        initialVc.store = AlbumStore()
         
         navController.navigationBar.prefersLargeTitles = true
         window?.overrideUserInterfaceStyle = .dark

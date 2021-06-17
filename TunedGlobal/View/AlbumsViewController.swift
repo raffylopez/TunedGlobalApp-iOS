@@ -8,11 +8,11 @@
 import UIKit
 
 // MARK: - TrendingAlbumsViewController
-class TrendingAlbumsViewController: UIViewController {
+class AlbumsViewController: UIViewController {
     
-    var store: PrimaryReleaseStore!
+    var store: AlbumStore!
     @IBOutlet var collectionView: UICollectionView!
-    var photosDatasource = PrimaryReleaseDatasource()
+    var albumsDatasource = AlbumsDatasource()
 
     @objc private func reloadLayout() {
         self.collectionView.setNeedsLayout()
@@ -37,7 +37,7 @@ class TrendingAlbumsViewController: UIViewController {
         self.collectionView.dragInteractionEnabled = true
         self.collectionView.dragDelegate = self
         self.collectionView.dropDelegate = self
-        self.collectionView.dataSource = photosDatasource
+        self.collectionView.dataSource = albumsDatasource
         self.collectionView.backgroundColor = .systemBackground
         self.view.backgroundColor = .systemBackground
         NotificationCenter.default.addObserver(self, selector: #selector(reloadLayout), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -51,16 +51,16 @@ class TrendingAlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupLayout()
-        self.store.fetchPrimaryReleases { result in
+        self.store.fetchAlbums { result in
             switch result {
             case .success(let photos):
                 photos.forEach { (photo) in
                     self.store.imageStore.image(forKey: "\(photo.albumID)")
                 }
-                self.photosDatasource.primaryReleases = photos
+                self.albumsDatasource.primaryReleases = photos
             case .failure(let error):
                 print("ERROR: \(error)")
-                self.photosDatasource.primaryReleases.removeAll()
+                self.albumsDatasource.primaryReleases.removeAll()
             }
             self.collectionView.reloadSections(IndexSet(integer: 0))
         }
@@ -77,12 +77,12 @@ class TrendingAlbumsViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension TrendingAlbumsViewController: UICollectionViewDelegate {
+extension AlbumsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let photo = self.photosDatasource.primaryReleases[indexPath.row]
+        let photo = self.albumsDatasource.primaryReleases[indexPath.row]
             store.fetchImage(for: photo, downsampleTo: cell.bounds.size, scaleTo: collectionView.traitCollection.displayScale) { result in
-            guard let photoIndex = self.photosDatasource.primaryReleases.firstIndex(of: photo),
+            guard let photoIndex = self.albumsDatasource.primaryReleases.firstIndex(of: photo),
                 case let .success(image) = result else {
                     return
             }
@@ -94,7 +94,7 @@ extension TrendingAlbumsViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDragDelegate, UICollectionViewDropDelegate
-extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
+extension AlbumsViewController: UICollectionViewDragDelegate, UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         if collectionView.hasActiveDrag {
@@ -106,8 +106,8 @@ extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollecti
     private func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
         if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
             collectionView.performBatchUpdates({
-                self.photosDatasource.primaryReleases.remove(at: sourceIndexPath.item)
-                self.photosDatasource.primaryReleases.insert(item.dragItem.localObject as! PrimaryRelease, at: destinationIndexPath.item)
+                self.albumsDatasource.primaryReleases.remove(at: sourceIndexPath.item)
+                self.albumsDatasource.primaryReleases.insert(item.dragItem.localObject as! PrimaryRelease, at: destinationIndexPath.item)
                 collectionView.deleteItems(at: [sourceIndexPath])
                 collectionView.insertItems(at: [destinationIndexPath])
             }, completion: nil)
@@ -129,7 +129,7 @@ extension TrendingAlbumsViewController: UICollectionViewDragDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = self.photosDatasource.primaryReleases[indexPath.row]
+        let item = self.albumsDatasource.primaryReleases[indexPath.row]
         let itemProvider = NSItemProvider(object: "\(item.albumID)" as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item

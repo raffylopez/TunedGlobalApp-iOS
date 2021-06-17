@@ -1,4 +1,4 @@
-# 📱 TunedGlobal App Client (iOS)
+## TunedGlobal App Client (iOS)
 
 UICollectionView-based app displaying music albums via the TunedGlobal API, with in-built image caching and downsampling.
 

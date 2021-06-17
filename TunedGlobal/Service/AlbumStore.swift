@@ -1,5 +1,5 @@
 //
-//  PhotoStore.swift
+//  AlbumStore.swift
 //  TunedGlobal
 //
 //  Copyright © 2021 Raf. All rights reserved.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum PhotoError: Error {
+enum AppError: Error {
     case imageCreationError
     case missingImageUrl
 }
@@ -24,14 +24,14 @@ enum ImageResult<UIImage, Error> {
 }
 
 /// Service for downloading photos, photo data, and decoding
-class PrimaryReleaseStore {
+class AlbumStore {
     let imageStore = ImageStore()
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
     
-    func fetchPrimaryReleases(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
+    func fetchAlbums(completion: @escaping (Result<[PrimaryRelease], Error>) -> Void) {
         let request = TunedGlobalAPI.trendingAlbumsURLRequest
 
         let task = session.albumDataTask(withUrlRequest: request) { albumData, response, error in
@@ -42,7 +42,7 @@ class PrimaryReleaseStore {
                     completion(.failure(requestError))
                     return
                 }
-                completion(.failure(PhotoError.missingImageUrl))
+                completion(.failure(AppError.missingImageUrl))
                 return
             }
             OperationQueue.main.addOperation {
@@ -61,7 +61,7 @@ class PrimaryReleaseStore {
             }
         }
         guard let photoUrl = photo.image else {
-            completion(.failure(PhotoError.missingImageUrl))
+            completion(.failure(AppError.missingImageUrl))
             return
         }
         let request = URLRequest(url: URL(string:photoUrl)!)
@@ -91,7 +91,7 @@ class PrimaryReleaseStore {
             return
         }
         guard let photoUrl = photo.image else {
-            completion(.failure(PhotoError.missingImageUrl))
+            completion(.failure(AppError.missingImageUrl))
             return
         }
         let request = URLRequest(url: URL(string:photoUrl)!)
@@ -113,7 +113,7 @@ class PrimaryReleaseStore {
             if data == nil {
                 return .failure(error!)
             }
-            return .failure(PhotoError.imageCreationError)
+            return .failure(AppError.imageCreationError)
         }
         return .success((image, .network))
     }

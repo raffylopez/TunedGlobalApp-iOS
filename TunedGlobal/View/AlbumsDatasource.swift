@@ -1,5 +1,5 @@
 //
-//  PhotoDatasource.swift
+//  AlbumsDatasource.swift
 //  TunedGlobal
 //
 //  Copyright © 2021 Raf. All rights reserved.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrimaryReleaseDatasource: NSObject, UICollectionViewDataSource {
+class AlbumsDatasource: NSObject, UICollectionViewDataSource {
     
     var primaryReleases = [PrimaryRelease]()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
